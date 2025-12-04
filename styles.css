@@ -1,0 +1,59 @@
+:root{
+    --bg:#ffffff;
+    --text:#111827;
+    --muted:#6b7280;
+    --card:#f8fafc;
+    --accent:#2563eb;
+    --radius:10px;
+}
+.dark{
+    --bg:#0b1220;
+    --text:#e6eef8;
+    --muted:#98a2b3;
+    --card:#071126;
+    --accent:#60a5fa;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    transition:background .25s ease, color .25s ease;
+    padding:24px;
+}
+header.site-header{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
+}
+.brand{font-weight:700;font-size:1.25rem;color:var(--accent)}
+.nav{display:flex;gap:12px}
+.nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:8px;transition:background .18s}
+.nav a:hover{background:rgba(0,0,0,0.04)}
+.theme-btn{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:6px 10px;border-radius:8px;cursor:pointer}
+
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2rem;margin:0 0 12px}
+
+/* Projects list */
+.projects-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.project-card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.06);transition:transform .18s ease, box-shadow .18s ease;opacity:0;transform:translateY(10px);}
+.project-card.visible{opacity:1;transform:none}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.12)}
+.project-card h3{margin:0 0 8px;font-size:1.05rem}
+.project-card p{margin:0 0 10px;color:var(--muted);font-size:0.95rem}
+.project-actions{display:flex;gap:8px}
+.btn{background:var(--accent);color:white;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600}
+.link-secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 10px;border-radius:8px;text-decoration:none}
+
+/* Animations */
+@keyframes floatIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* Small screens */
+@media (max-width:520px){
+    .nav{display:flex;gap:8px}
+    .brand{font-size:1rem}
+}
